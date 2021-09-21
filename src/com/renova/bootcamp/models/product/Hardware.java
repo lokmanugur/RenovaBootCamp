@@ -11,25 +11,29 @@
  */
 package com.renova.bootcamp.models.product;
 
+import com.renova.bootcamp.tax.Turkey;
+
 /**
- * 
+ *
  * @author Lokman ugur lokman.ugur@hotmail.com
  *
  */
-
 public class Hardware extends Product {
-	private final int warrantyPeriod;
 
-	public Hardware(String description, int id, String name, double retailPrice,int warrantyPeriod) {
-		super(description, id, name, retailPrice);
-		this.warrantyPeriod = warrantyPeriod;
-	}
+    private final int warrantyPeriod;
 
-	/**
-	 * @return the warrantyPeriod
-	 */
-	public int getWarrantyPeriod() {
-		return warrantyPeriod;
-	}
-	
+    public Hardware( int id, String name, double retailPrice, String description, int warrantyPeriod) {
+        super( id, name, retailPrice,description);
+        this.warrantyPeriod = warrantyPeriod;
+    }
+    /**
+     * @return the warrantyPeriod
+     */
+    public int getWarrantyPeriod() {
+        return warrantyPeriod;
+    }
+
+    public double getTax(){
+        return new Turkey().calculateTax(getRetailPrice());
+    }
 }

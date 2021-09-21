@@ -13,58 +13,86 @@ package com.renova.bootcamp.models.customer;
 
 /**
  * This class represents the customer context and its associated operations.
- * 
+ *
  * @author Lokman ugur lokman.ugur@hotmail.com
  *
  */
-
-
 public class Customer {
-	private String address;
-	private int id;
-	private final String name;
-	private final String phone;
-	public Customer(String address, int id, String name, String phone) {
-		this.address = address;
-		this.id = id;
-		this.name = name;
-		this.phone = phone;
-	}
-	/**
-	 * @return the address
-	 */
-	public String getAddress() {
-		return address;
-	}
-	/**
-	 * @param address the address to set
-	 */
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-	/**
-	 * @return the phone
-	 */
-	public String getPhone() {
-		return phone;
-	}
+
+    private int id;
+    private final String name;
+    private final String phone;
+    private String address;
+
+    public Customer(int id, String name, String phone, String address) {
+        this.address = address;
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+    }
+
+    /**
+     * @return the address
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @return the phone
+     */
+    public String getPhone() {
+        return phone;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Customer other = (Customer) obj;
+        return this.id == other.id;
+    }
+    
+    
 
 }

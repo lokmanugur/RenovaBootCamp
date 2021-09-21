@@ -12,25 +12,24 @@
 package com.renova.bootcamp.models.product;
 
 /**
- * 
+ *
  * @author Lokman ugur lokman.ugur@hotmail.com
  *
  */
+public class Manual extends Product {
 
-public class Manuel extends Product {
+    private final String publisher;
 
-	private final String publisher;
+    public Manual( int id, String name, double retailPrice,String description, String publisher) {
+        super( id, name, retailPrice,description);
+        this.publisher = publisher;
+    }
 
-	public Manuel(String description, int id, String name, double retailPrice,String publisher) {
-		super(description, id, name, retailPrice);
-		this.publisher = publisher;
-	}
+    /**
+     * @return the publisher
+     */
+    public String getPublisher() {
+        return publisher;
+    }
 
-	/**
-	 * @return the publisher
-	 */
-	public String getPublisher() {
-		return publisher;
-	}
-	
 }

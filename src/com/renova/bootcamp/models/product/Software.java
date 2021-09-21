@@ -12,26 +12,24 @@
 package com.renova.bootcamp.models.product;
 
 /**
- * 
+ *
  * @author Lokman ugur lokman.ugur@hotmail.com
  *
  */
-
 public class Software extends Product {
-	private final String lisans;
 
-	public Software(String description, int id, String name, double retailPrice,String lisans) {
-		super(description, id, name, retailPrice);
-		this.lisans = lisans;
-	}
+    private final String licence;
 
-	/**
-	 * @return the license
-	 */
-	public String getLisans() {
-		return lisans;
-	}
-	
-	
+    public Software( int id, String name, double retailPrice,String description, String licence) {
+        super( id, name, retailPrice,description);
+        this.licence = licence;
+    }
+
+    /**
+     * @return the license
+     */
+    public String getLicence() {
+        return licence;
+    }
 
 }

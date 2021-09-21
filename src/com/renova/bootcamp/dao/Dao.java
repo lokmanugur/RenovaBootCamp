@@ -21,7 +21,7 @@ import java.util.List;
  * 
  */
 
-public interface OrderListDao<T> {
+public interface Dao<T> {
 
     T get(int id);
     
