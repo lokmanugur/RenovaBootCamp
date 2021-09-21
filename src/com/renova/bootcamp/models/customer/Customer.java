@@ -92,7 +92,11 @@ public class Customer {
         final Customer other = (Customer) obj;
         return this.id == other.id;
     }
-    
-    
 
+    @Override
+    public String toString() {
+        return id+" "+name; //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 }

@@ -15,7 +15,9 @@ import com.renova.bootcamp.models.product.OrderItem;
 import com.renova.bootcamp.view.order.OrderForm;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -30,7 +32,7 @@ public class OrderFormController {
     private List<Customer> customerList;
     private final List<OrderItem> customerAllData;
     private final List<Order> orderList;
-
+    private final Map<Object,Customer > customerMap;
     private int counter = 0;
 
     public OrderFormController(OrderForm orderForm) {
@@ -40,6 +42,7 @@ public class OrderFormController {
         customerAllData = orderItemList.getAll();
         orderDaoList = OrderDaoImpl.getInstance();
         orderList = new ArrayList<>();
+        customerMap = new HashMap<>();
     }
 
     public void fillOrderItemTable() {
@@ -90,26 +93,29 @@ public class OrderFormController {
 
     public void addAllCustomerToComboBox() {
         customerList = customerDaoList.getAll();
+        arrayListToHashMap();
         orderForm.getCustomerComboBox().removeAllItems();
         customerList.forEach((Customer value) -> {
-            orderForm.getCustomerComboBox().addItem(value.getId()+" "+value.getName());
+            orderForm.getCustomerComboBox().addItem(value.toString());
         });
     }
 
-//    public void addCartButton() {
-//        Order order = new Order();
-//        order.setId(Integer.valueOf(orderForm.getOrderIdTextField().getText()));
-//        order.setCustomer(compare((String)orderForm.getCustomerComboBox().getSelectedItem()));
-//        order.setItems(customerAllData);
-//        order.setOrderDate(new Date(orderForm.getDateChooser().getDate().getTime()));
-//        System.out.println(order.getCustomer().getName());
-//    }
-//    
-//    private Customer compare(String str){
-//        for(Customer c : customerList){
-//        if(c.equals((Object)str))
-//            return c;
-//        }
-//        return null;
-//    }
+    public void addCartButton() {
+        Order order = new Order();
+        order.setId(Integer.valueOf(orderForm.getOrderIdTextField().getText()));
+        order.setCustomer(getCustomerFromHashMap(orderForm.getCustomerComboBox().getSelectedItem()));
+        order.setItems(customerAllData);
+        order.setOrderDate(new Date(orderForm.getDateChooser().getDate().getTime()));
+        System.out.println(order.getCustomer().getName());
+    }
+        
+    public void arrayListToHashMap(){
+        customerList.forEach(c -> {
+            customerMap.put(c.toString(), c);
+        });
+    }
+    
+    public Customer getCustomerFromHashMap(Object obj){
+        return customerMap.get(obj);
+    }
 }

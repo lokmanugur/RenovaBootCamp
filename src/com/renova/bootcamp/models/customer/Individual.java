@@ -41,10 +41,5 @@ public class Individual extends Customer {
     public void setLicNumber(String licNumber) {
         this.licNumber = licNumber;
     }
-
-    @Override
-    public String toString() {
-        return "Individual [licNumber=" + licNumber + "]";
-    }
     
 }

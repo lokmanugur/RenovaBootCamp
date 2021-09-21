@@ -299,7 +299,7 @@ public final class OrderForm extends JInternalFrame {
         if(evt.getKeyCode()==10){}
     }
     private void addCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCartButtonActionPerformed
-       // orderFormController.addCartButton();
+        orderFormController.addCartButton();
     }//GEN-LAST:event_addCartButtonActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
